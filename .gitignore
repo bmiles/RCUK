@@ -2,5 +2,6 @@ node_modules
 dist
 .tmp
 .sass-cache
+.env
 app/bower_components
 data/gtr_repo_20131122_0900.sql
