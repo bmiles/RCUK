@@ -42,6 +42,9 @@ def make_training_set training_set_size
   data_to_csv 'train.csv', sample
 end
 
+#
+# based on reading a few...
+#
 # positive indicators:
 #   limited
 #   ltd
