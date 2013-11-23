@@ -3,6 +3,8 @@
 from os import environ
 from urlparse import urlparse
 
+from schemas import organisation_schema, person_schema, project_schema
+
 API_NAME = 'ResearchConnect'
 URL_PREFIX = 'api'
 if 'EVE_DEBUG' in environ:
@@ -18,8 +20,28 @@ if 'MONGOLAB_URI' in environ:
 else:
     MONGO_DBNAME = API_NAME
 
+organisations = {
+    "item_title": "organisations",
+    "schema": organisation_schema,
+    "resource_methods": ['GET'],
+}
+
+persons = {
+    "item_title": "persons",
+    "schema": person_schema,
+    "resource_methods": ['GET'],
+}
+
+projects = {
+    "item_title": "projects",
+    "schema": project_schema,
+    "resource_methods": ['GET'],
+}
+
 DOMAIN = {
-    'persons': {},
+    'organisations': organisations,
+    'persons': persons,
+    'projects': projects,
 }
 
 # FIXME: Temporarily allow CORS requests for development purposes
