@@ -10,6 +10,24 @@ link_schema = {
     },
 }
 
+organisation_embed = {
+    "type": "objectid",
+    "data_relation": {
+        "resource": "organisations",
+        "field": "_id",
+        "embeddable": True,
+    }
+}
+
+project_embed = {
+    "type": "objectid",
+    "data_relation": {
+        "resource": "projects",
+        "field": "_id",
+        "embeddable": True,
+    }
+}
+
 organisation_schema = {
     "id": {
         "type": "string"
@@ -66,6 +84,26 @@ person_schema = {
     "email": {
         "type": "string",
         "nullable": True,
+    },
+    "PI_PER": {
+        "type": "list",
+        "schema": project_embed,
+    },
+    "COI_PER": {
+        "type": "list",
+        "schema": project_embed,
+    },
+    "PM_PER": {
+        "type": "list",
+        "schema": project_embed,
+    },
+    "FELLOW_PER": {
+        "type": "list",
+        "schema": project_embed,
+    },
+    "EMPLOYEE": {
+        "type": "list",
+        "schema": organisation_embed,
     },
 }
 

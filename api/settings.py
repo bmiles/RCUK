@@ -29,6 +29,8 @@ organisations = {
 persons = {
     "item_title": "persons",
     "schema": person_schema,
+    "embedding": True,
+    "embedded_fields": ["PI_PER", "COI_PER", "PM_PER", "FELLOW_PER", "EMPLOYEE"],
     "resource_methods": ['GET'],
 }
 
