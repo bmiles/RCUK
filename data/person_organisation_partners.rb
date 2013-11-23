@@ -1,3 +1,4 @@
-require 'mysql2'
-require 'json'
+require './common'
+
+pop = $db.query("SELECT * FROM person_organisation_partners")
 

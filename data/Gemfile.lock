@@ -1,0 +1,14 @@
+GEM
+  remote: http://rubygems.org/
+  specs:
+    fastercsv (1.5.5)
+    json (1.8.1)
+    mysql2 (0.3.14)
+
+PLATFORMS
+  ruby
+
+DEPENDENCIES
+  fastercsv
+  json
+  mysql2
