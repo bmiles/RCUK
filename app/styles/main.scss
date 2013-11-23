@@ -2,6 +2,54 @@ $icon-font-path: "/bower_components/sass-bootstrap/fonts/";
 
 @import 'sass-bootstrap/lib/bootstrap';
 
+.searchSection{
+  height: 250px;
+  margin: 75px 25px auto 25px;
+
+}
+.personResultsSection {
+  padding-top: 25px;
+  background-color: white;
+  height: 500px;
+}
+.popularSearchesSection{
+  background-color: #e9e6e6;
+  padding:15px;
+}
+.personBox{
+  padding: 25px;
+  border-radius: 5px;
+  background-color: #fffae0;
+}
+
+.guideBox{
+  background-color: orange;
+  padding: 5px;
+  height: 75px;
+  width: 350px;
+  margin: 0 auto 0 auto;
+  color: #e9e6e6;
+}
+
+#searchTerm{
+  background-color: #545353;
+  color: white;
+  height: 75px;
+  width: 600px;
+  border: none;
+  border-radius: none;
+  margin: 0 auto 0 auto;
+}
+
+#searchGo{
+  position: absolute;
+  height: 75px;
+  width: 75px;
+  right: 0;
+  bottom: 0;
+  float: right;
+}
+
 .browsehappy {
     margin: 0.2em 0;
     background: #ccc;
@@ -11,6 +59,7 @@ $icon-font-path: "/bower_components/sass-bootstrap/fonts/";
 
 /* Space out content a bit */
 body {
+    background-image: url(http://lorempixel.com/1280/1024/technics);
     padding-top: 20px;
     padding-bottom: 20px;
 }

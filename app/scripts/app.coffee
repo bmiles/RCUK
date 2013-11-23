@@ -11,5 +11,8 @@ angular.module('rcukApp', [
       .when '/',
         templateUrl: 'views/main.html'
         controller: 'MainCtrl'
+      .when '/result/:searchTerm',
+        templateUrl: 'views/result.html'
+        controller: 'ResultCtrl'
       .otherwise
         redirectTo: '/'
