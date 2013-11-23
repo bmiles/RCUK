@@ -1,0 +1,21 @@
+<div class="row personResultsSection">
+  <div class="col-lg-12" ng-controller="MainCtrl"> 
+    <div ng-repeat="person in persons | limitTo:10">
+<!--         <a ng-click="showPerson(person)"> -->
+        <div class="row"> <!-- each box  --> 
+          <div class="col-lg-12 personBox" ng-style="{'background-image': 'url(www.placehold.it/400)'}; ">
+            <div class="storyBoxOverlay"></div>
+            <div class="overlaybox"></div>
+            <div class="row storyBoxTitle">
+              <div class="col-lg-12">
+                <h2>{{person.firstName}} {{person.surname}}</h2>
+                <a href="{{person.href}}">link GTR API</a>
+<!--                   <h2>{{persons.links.link[0].href}}</h2> -->
+              </div>
+            </div>
+          </div>
+        </div> <!-- /box -->
+      
+    </div>
+  </div>
+</div>
