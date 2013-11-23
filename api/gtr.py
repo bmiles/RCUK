@@ -1,4 +1,5 @@
 from datetime import datetime
+from logging import getLogger, DEBUG, debug
 from os import environ
 from sys import maxint
 
@@ -72,9 +73,11 @@ def populate_db(page=1, size=100, end=maxint):
         payload = {'p': page, 's': size}
         data = request('http://gtr.rcuk.ac.uk/gtr/api/persons', payload)
         persons = [get_person(person) for person in data['person']]
-        db.persons.insert(persons)
+        ids = db.persons.insert(persons)
+        debug("On page %d, inserted persons %s" % (page, ids))
         page = data['page'] + 1
         total = data['totalPages']
 
 if __name__ == '__main__':
-    populate_db(size=10, end=1)
+    getLogger().setLevel(DEBUG)
+    populate_db()
