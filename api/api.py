@@ -1,10 +1,36 @@
 from os import environ
 
 from eve import Eve
+from flask import send_from_directory
 
 from settings import API_NAME
 
 app = Eve(API_NAME)
+
+
+@app.route('/scripts/<path:filename>')
+def scripts(filename):
+    return send_from_directory(app.root_path + '/app/dist/scripts/', filename)
+
+
+@app.route('/styles/<path:filename>')
+def styles(filename):
+    return send_from_directory(app.root_path + '/app/dist/styles/', filename)
+
+
+@app.route('/images/<path:filename>')
+def images(filename):
+    return send_from_directory(app.root_path + '/app/dist/images/', filename)
+
+
+@app.route('/views/<path:filename>')
+def views(filename):
+    return send_from_directory(app.root_path + '/app/dist/views/', filename)
+
+
+@app.route("/")
+def index():
+    return send_from_directory(app.root_path + '/app/dist/', 'index.html')
 
 
 if __name__ == '__main__':
