@@ -7,3 +7,5 @@ app/bower_components
 data/gtr_repo_20131122_0900.sql
 .Rproj.user
 .~*#
+
+data/organisations.csv
