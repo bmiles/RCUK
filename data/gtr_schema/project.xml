@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="http://gtr.rcuk.ac.uk/gtr/api/project"
+    targetNamespace="http://gtr.rcuk.ac.uk/gtr/api/project"
+    xmlns:gtr="http://gtr.rcuk.ac.uk/gtr/api" xmlns:gtr-proj="http://gtr.rcuk.ac.uk/gtr/api/project"
+    attributeFormDefault="qualified" elementFormDefault="qualified">
+
+    <xs:import schemaLocation="gtr2.v1.xsd" namespace="http://gtr.rcuk.ac.uk/gtr/api"/>
+
+    <xs:element name="project" type="gtr-proj:project"/>
+    <xs:element name="projects" type="gtr-proj:projects"/>
+
+    <xs:complexType name="project">
+        <xs:annotation>
+            <xs:documentation xml:lang="en"> A research project </xs:documentation>
+        </xs:annotation>
+        <xs:complexContent>
+            <xs:extension base="gtr:resource">
+                <xs:sequence>
+                    <xs:element name="identifiers" type="gtr-proj:identifiers"/>
+                    <xs:element name="title" type="xs:string"/>
+                    <xs:element name="status" type="xs:string" minOccurs="0"/>
+                    <xs:element name="grantCategory" type="xs:string" minOccurs="0"/>
+                    <xs:element name="abstractText" type="xs:string" minOccurs="0"/>
+                    <xs:element name="techAbstractText" type="xs:string" minOccurs="0"/>
+                    <xs:element name="potentialImpact" type="xs:string" minOccurs="0"/>
+                    <xs:element name="start" type="xs:date" minOccurs="0"/>
+                    <xs:element name="end" type="xs:date" minOccurs="0"/>
+                </xs:sequence>
+            </xs:extension>
+        </xs:complexContent>
+    </xs:complexType>
+
+    <xs:complexType name="identifiers">
+        <xs:annotation>
+            <xs:documentation xml:lang="en"> Identifiers and reference numbers. </xs:documentation>
+        </xs:annotation>
+        <xs:sequence>
+            <xs:element name="identifier" minOccurs="0" maxOccurs="unbounded">
+                <xs:complexType>
+                    <xs:simpleContent>
+                        <xs:extension base="xs:string">
+                            <xs:attribute name="type" type="xs:string"/>
+                        </xs:extension>
+                    </xs:simpleContent>
+                </xs:complexType>
+            </xs:element>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="projects">
+        <xs:annotation>
+            <xs:documentation xml:lang="en"> A bulk collection of project </xs:documentation>
+        </xs:annotation>
+        <xs:complexContent>
+            <xs:extension base="gtr:bulk">
+                <xs:sequence>
+                    <xs:element name="project" type="gtr-proj:project" minOccurs="0" maxOccurs="unbounded"/>
+                </xs:sequence>
+            </xs:extension>
+        </xs:complexContent>
+    </xs:complexType>
+</xs:schema>
