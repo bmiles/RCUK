@@ -1,6 +1,20 @@
 $icon-font-path: "/bower_components/sass-bootstrap/fonts/";
 
 @import 'sass-bootstrap/lib/bootstrap';
+$flatorange: #f39c12;
+$pumpkin: #d35400;
+$midnightBlue: #2c3e50;
+$wetAsphalt: #34495e;
+$clouds: #ecf0f1;
+$asbestos: #7f8c8d;
+$silver: #bdc3c7;
+
+
+@import url(http:\/\/fonts.googleapis.com/css?family=Roboto:400,400italic,300,300italic,700|Roboto+Slab);
+@import 'typography';
+//google fonts
+
+//flatui colors
 
 .searchSection{
   height: 250px;
@@ -13,8 +27,25 @@ $icon-font-path: "/bower_components/sass-bootstrap/fonts/";
   height: 500px;
 }
 .popularSearchesSection{
-  background-color: #e9e6e6;
+  h3 {
+    color: $flatorange;
+  }
+  a {
+    color: $asbestos;
+  }
+  background-color: white;
   padding:15px;
+  -webkit-box-shadow: 0 0 10px 1px rgba(0,0,0,.1);
+  -moz-box-shadow: 0 0 10px 1px rgba(0,0,0,.1);
+  box-shadow: 0 0 10px 1px rgba(0,0,0,.1);
+}
+.popularSearchTagline{
+  background-color: $clouds;
+  padding:15px;
+  margin: 5px 0 5px 0;
+  p {
+    color: $silver;
+  }
 }
 .personBox{
   padding: 25px;
@@ -23,16 +54,16 @@ $icon-font-path: "/bower_components/sass-bootstrap/fonts/";
 }
 
 .guideBox{
-  background-color: orange;
+  background-color: $flatorange;
   padding: 5px;
   height: 75px;
-  width: 350px;
+  //width: 500px;
   margin: 0 auto 0 auto;
-  color: #e9e6e6;
+  color: $clouds;
 }
 
 #searchTerm{
-  background-color: #545353;
+  background-color: $midnightBlue;
   color: white;
   height: 75px;
   width: 600px;

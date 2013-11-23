@@ -15,20 +15,24 @@
     <form class="form-inline col-lg-10" role="form" ng-controller="MainCtrl">
       <div class="form-group">
         <label class="sr-only" for="searchTerm">Search</label>
-        <input type="search" class="form-control" id="searchTerm" ng-model="search.Term" placeholder="Search for a topic like 'nanotechnology'">
+        <input type="search" class="form-control" id="searchTerm" ng-model="searchTerm" placeholder="Search for a topic like 'nanotechnology'">
       </div>
-      <button type="submit" class="btn btn-default" id="searchGo" <ng-click="topicSearch(search.Term)">Go</button>
+      <button type="submit" class="btn btn-default" id="searchGo" ng-click="showResults(searchTerm)">Go</button>
     </form>
   </div>
 </div>
 
 <div class="row popularSearchesSection">
-  <h2><small>Popular searches</small></h2>
-  <div class="col-lg-6" ng-repeat="popularSearch in popularSearches" ng-model="popularSearches">
-    <a ng-click="showResults(popularSearch)"><h4 class="text-center">{{popularSearch}}</h4></a>
+  <h3>Popular searches</h3>
+  <div class="row">
+  <div class="col-lg-12 popularSearchTagline">
+    <h4 class="text-center">We scour the Research council UK for people that can help <i>you</i>.</h4>
   </div>
   <div class="col-lg-6" ng-repeat="popularSearch in popularSearches" ng-model="popularSearches">
-    <a ng-click="showResults(popularSearch)"><h4 class="text-center">{{popularSearch}}</h4></a>
+    <a ng-click="showResults(popularSearch)"><p class="text-center">{{popularSearch}}</p></a>
+  </div>
+  <div class="col-lg-6" ng-repeat="popularSearch in popularSearches" ng-model="popularSearches">
+    <a ng-click="showResults(popularSearch)"><p class="text-center">{{popularSearch}}</p></a>
   </div>
 </div>
 
