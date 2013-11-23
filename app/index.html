@@ -26,7 +26,10 @@
     <![endif]-->
 
     <!-- Add your site or application content here -->
-    <div class="container" ng-view=""></div>
+    <div class="container"> 
+      <div myNavbar></div>
+      <div ng-view="" class="view-animate"></div>
+    </div>
 
     <!-- Google Analytics: change UA-XXXXX-X to be your site's ID -->
      <script>
@@ -62,6 +65,8 @@
         <script src="bower_components/angular-cookies/angular-cookies.js"></script>
         <script src="bower_components/angular-sanitize/angular-sanitize.js"></script>
         <script src="bower_components/angular-route/angular-route.js"></script>
+        <script src="bower_components/angular-animate/angular-animate.js"></script>
+
         <!-- endbuild -->
 
         <!-- build:js({.tmp,app}) scripts/scripts.js -->
@@ -69,6 +74,7 @@
         <script src="scripts/controllers/main.js"></script>
         <script src="scripts/services/personStorage.js"></script>
         <script src="scripts/controllers/result.js"></script>
+        <script src="scripts/directives/myNavbar.js"></script>
         <!-- endbuild -->
 </body>
 </html>

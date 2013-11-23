@@ -1,6 +1,7 @@
 $icon-font-path: "/bower_components/sass-bootstrap/fonts/";
 
 @import 'sass-bootstrap/lib/bootstrap';
+@import 'animation';
 $flatorange: #f39c12;
 $pumpkin: #d35400;
 $midnightBlue: #2c3e50;
@@ -20,11 +21,6 @@ $silver: #bdc3c7;
   height: 250px;
   margin: 75px 25px auto 25px;
 
-}
-.personResultsSection {
-  padding-top: 25px;
-  background-color: white;
-  height: 500px;
 }
 .popularSearchesSection{
   h3 {
@@ -47,12 +43,6 @@ $silver: #bdc3c7;
     color: $silver;
   }
 }
-.personBox{
-  padding: 25px;
-  border-radius: 5px;
-  background-color: #fffae0;
-}
-
 .guideBox{
   background-color: $flatorange;
   padding: 5px;
@@ -66,12 +56,13 @@ $silver: #bdc3c7;
   background-color: $midnightBlue;
   color: white;
   height: 75px;
-  width: 600px;
+  //width: 400px;
   border: none;
   border-radius: none;
   margin: 0 auto 0 auto;
 }
 
+/*
 #searchGo{
   position: absolute;
   height: 75px;
@@ -79,6 +70,17 @@ $silver: #bdc3c7;
   right: 0;
   bottom: 0;
   float: right;
+}
+*/
+.personResultsSection {
+  padding-top: 25px;
+  background-color: white;
+  height: 500px;
+}
+
+.personBox{
+  padding: 25px;
+  background-color: $clouds;
 }
 
 .browsehappy {
