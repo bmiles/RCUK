@@ -81,7 +81,7 @@ def populate_db(page=1, size=100, end=maxint):
                 debug("Request to %s failed: %s" % (link['href'], e.message))
         return person
 
-    total = 1
+    total = maxint
     while page <= min(end, total):
         payload = {'p': page, 's': size}
         data = request('http://gtr.rcuk.ac.uk/gtr/api/persons', payload)
