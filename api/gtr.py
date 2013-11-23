@@ -14,8 +14,12 @@ class FailedRequest(Exception):
     pass
 
 
-def convert_date(dct, field):
-    dct[field] = datetime.fromtimestamp(dct[field]/1000)
+def convert_date(dct, created, updated):
+    dct[created] = datetime.fromtimestamp(dct[created]/1000)
+    if dct[updated]:
+        dct[updated] = datetime.fromtimestamp(dct[updated]/1000)
+    else:
+        dct[updated] = dct[created]
 
 
 def request(url, params=None, headers=None):
@@ -31,7 +35,7 @@ def populate_project(url):
     project = db.projects.find_one({"href": url})
     if not project:
         data = request(url)
-        convert_date(data, 'created')
+        convert_date(data, 'created', 'updated')
         # FIXME: This would be ideal, but Eve doesn't like it
         # data['_id'] = data.pop('id')
         return db.projects.insert(data)
@@ -42,9 +46,9 @@ def populate_organisation(url):
     organisation = db.organisations.find_one({"href": url})
     if not organisation:
         data = request(url)
-        convert_date(data, 'created')
+        convert_date(data, 'created', 'updated')
         for address in data['addresses']['address']:
-            convert_date(address, 'created')
+            convert_date(address, 'created', 'updated')
         # FIXME: This would be ideal, but Eve doesn't like it
         # data['_id'] = data.pop('id')
         return db.organisations.insert(data)
@@ -69,7 +73,7 @@ def populate_db(page=1, size=100, end=maxint):
         person[rel].append(rel2func[rel](url))
 
     def get_person(person):
-        convert_date(person, 'created')
+        convert_date(person, 'created', 'updated')
         for link in person['links']['link']:
             try:
                 append_rel(link['rel'], link['href'], person)
