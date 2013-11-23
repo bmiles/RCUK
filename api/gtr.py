@@ -15,6 +15,8 @@ def convert_date(dct, field):
 
 
 def request(url, params=None, headers=None):
+    debug("Querying %s.json with params %r and headers %r" %
+          (url, params, headers))
     r = requests.get(url + '.json', params=params, headers=headers)
     if not r.status_code == 200:
         raise RuntimeError(r.json())
@@ -74,9 +76,9 @@ def populate_db(page=1, size=100, end=maxint):
         data = request('http://gtr.rcuk.ac.uk/gtr/api/persons', payload)
         persons = [get_person(person) for person in data['person']]
         ids = db.persons.insert(persons)
-        debug("On page %d, inserted persons %s" % (page, ids))
-        page = data['page'] + 1
         total = data['totalPages']
+        debug("On page %d/%d, inserted persons %s" % (page, total, ids))
+        page = data['page'] + 1
 
 if __name__ == '__main__':
     getLogger().setLevel(DEBUG)
