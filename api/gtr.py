@@ -10,6 +10,10 @@ dbname = environ['MONGOLAB_URI'].rsplit('/', 1)[1]
 db = MongoClient(environ['MONGOLAB_URI'])[dbname]
 
 
+class FailedRequest(Exception):
+    pass
+
+
 def convert_date(dct, field):
     dct[field] = datetime.fromtimestamp(dct[field]/1000)
 
@@ -19,7 +23,7 @@ def request(url, params=None, headers=None):
           (url, params, headers))
     r = requests.get(url + '.json', params=params, headers=headers)
     if not r.status_code == 200:
-        raise RuntimeError(r.json())
+        raise FailedRequest(r.json())
     return r.json()
 
 
@@ -67,7 +71,10 @@ def populate_db(page=1, size=100, end=maxint):
     def get_person(person):
         convert_date(person, 'created')
         for link in person['links']['link']:
-            append_rel(link['rel'], link['href'], person)
+            try:
+                append_rel(link['rel'], link['href'], person)
+            except FailedRequest as e:
+                debug("Request to %s failed: %s" % (link['href'], e.message))
         return person
 
     total = 1
