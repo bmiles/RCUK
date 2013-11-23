@@ -1,0 +1,509 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="http://gtr.rcuk.ac.uk/gtr/api/outcome"
+    targetNamespace="http://gtr.rcuk.ac.uk/gtr/api/project/outcome"
+    xmlns:gtr="http://gtr.rcuk.ac.uk/gtr/api"
+    xmlns:gtr-pout="http://gtr.rcuk.ac.uk/gtr/api/project/outcome" attributeFormDefault="qualified"
+    elementFormDefault="qualified">
+
+    <xs:import schemaLocation="gtr2.v1.xsd" namespace="http://gtr.rcuk.ac.uk/gtr/api"/>
+
+    <xs:element name="keyFinding" type="gtr-pout:keyFinding"/>
+    <xs:element name="keyFindings" type="gtr-pout:keyFindings"/>
+    <xs:element name="collaboration" type="gtr-pout:collaboration"/>
+    <xs:element name="collaborations" type="gtr-pout:collaborations"/>
+    <xs:element name="intellectualProperty" type="gtr-pout:intellectualProperty"/>
+    <xs:element name="intellectualProperties" type="gtr-pout:intellectualProperties"/>
+    <xs:element name="policyInfluence" type="gtr-pout:policyInfluence"/>
+    <xs:element name="policyInfluences" type="gtr-pout:policyInfluences"/>
+    <xs:element name="product" type="gtr-pout:product"/>
+    <xs:element name="products" type="gtr-pout:products"/>
+    <xs:element name="researchMaterial" type="gtr-pout:researchMaterial"/>
+    <xs:element name="researchMaterials" type="gtr-pout:researchMaterials"/>
+    <xs:element name="impactSummary" type="gtr-pout:impactSummary"/>
+    <xs:element name="impactSummaries" type="gtr-pout:impactSummaries"/>
+    <xs:element name="furtherFunding" type="gtr-pout:furtherFunding"/>
+    <xs:element name="furtherFundings" type="gtr-pout:furtherFundings"/>
+    <xs:element name="exploitation" type="gtr-pout:exploitation"/>
+    <xs:element name="exploitations" type="gtr-pout:exploitations"/>
+    <xs:element name="dissemination" type="gtr-pout:dissemination"/>
+    <xs:element name="disseminations" type="gtr-pout:disseminations"/>
+    <xs:element name="spinOut" type="gtr-pout:spinOut"/>
+    <xs:element name="spinOuts" type="gtr-pout:spinOuts"/>
+    <xs:element name="otherResearchItem" type="gtr-pout:otherResearchItem"/>
+    <xs:element name="otherResearchItems" type="gtr-pout:otherResearchItems"/>
+    <xs:element name="publication" type="gtr-pout:publication"/>
+    <xs:element name="publications" type="gtr-pout:publications"/>
+    <xs:element name="outcomes" type="gtr-pout:outcomes"/>
+    
+    <xs:complexType name="outcomes">
+        <xs:annotation>
+            <xs:documentation xml:lang="en"> Container for the various types of research outcome for a project </xs:documentation>
+        </xs:annotation>
+        <xs:sequence>
+            <xs:element name="keyFinding" type="gtr-pout:keyFinding" minOccurs="0" maxOccurs="unbounded"/>
+            <xs:element name="collaboration" type="gtr-pout:collaboration" minOccurs="0" maxOccurs="unbounded"/>
+            <xs:element name="intellectualProperty" type="gtr-pout:intellectualProperty" minOccurs="0" maxOccurs="unbounded"/>
+            <xs:element name="policyInfluence" type="gtr-pout:policyInfluence" minOccurs="0" maxOccurs="unbounded"/>
+            <xs:element name="product" type="gtr-pout:product" minOccurs="0" maxOccurs="unbounded"/>
+            <xs:element name="researchMaterial" type="gtr-pout:researchMaterial" minOccurs="0" maxOccurs="unbounded"/>
+            <xs:element name="impactSummary" type="gtr-pout:impactSummary" minOccurs="0" maxOccurs="unbounded"/>
+            <xs:element name="furtherFunding" type="gtr-pout:furtherFunding" minOccurs="0" maxOccurs="unbounded"/>
+            <xs:element name="otherResearchItem" type="gtr-pout:otherResearchItem" minOccurs="0" maxOccurs="unbounded"/>
+            <xs:element name="exploitation" type="gtr-pout:exploitation" minOccurs="0" maxOccurs="unbounded"/>
+            <xs:element name="dissemination" type="gtr-pout:dissemination" minOccurs="0" maxOccurs="unbounded"/>
+            <xs:element name="spinOut" type="gtr-pout:spinOut" minOccurs="0" maxOccurs="unbounded"/>
+            <xs:element name="publication" type="gtr-pout:publication" minOccurs="0" maxOccurs="unbounded"/>
+            <xs:element name="ext" minOccurs="0" type="gtr:ext"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="keyFindings">
+        <xs:annotation>
+            <xs:documentation xml:lang="en"> A bulk collection of key finding </xs:documentation>
+        </xs:annotation>
+        <xs:complexContent>
+            <xs:extension base="gtr:bulk">
+                <xs:sequence>
+                    <xs:element name="keyFinding" type="gtr-pout:keyFinding" minOccurs="0" maxOccurs="unbounded"/>
+                </xs:sequence>
+            </xs:extension>
+        </xs:complexContent>
+    </xs:complexType>
+    <xs:complexType name="keyFinding">
+        <xs:annotation>
+            <xs:documentation xml:lang="en"> Research Key Findings </xs:documentation>
+        </xs:annotation>
+        <xs:complexContent>
+            <xs:extension base="gtr:resource">
+                <xs:sequence>
+                    <xs:element name="description" type="xs:string" nillable="true"/>
+                    <xs:element name="nonAcademicUses" type="xs:string" minOccurs="0"/>
+                    <xs:element name="exploitationPathways" type="xs:string" minOccurs="0"/>
+                    <xs:element name="sectors" type="gtr:strList" minOccurs="0"/>
+                    <xs:element name="supportingUrl" type="xs:string" minOccurs="0"/>
+                </xs:sequence>
+            </xs:extension>
+        </xs:complexContent>
+    </xs:complexType>
+
+    <xs:complexType name="publications">
+        <xs:annotation>
+            <xs:documentation xml:lang="en"> Publication research outcome </xs:documentation>
+        </xs:annotation>
+        <xs:complexContent>
+            <xs:extension base="gtr:bulk">
+                <xs:sequence>
+                    <xs:element name="publication" type="gtr-pout:publication" minOccurs="0" maxOccurs="unbounded"/>
+                </xs:sequence>
+            </xs:extension>
+        </xs:complexContent>
+    </xs:complexType>
+    <xs:complexType name="publication">
+        <xs:annotation>
+            <xs:documentation xml:lang="en"> Research publication. </xs:documentation>
+        </xs:annotation>
+        <xs:complexContent>
+            <xs:extension base="gtr:resource">
+                <xs:sequence>
+                    <xs:element name="title" type="xs:string"/>
+                    <xs:element name="type" type="xs:string" minOccurs="0"/>
+                    <xs:element name="abstractText" type="xs:string" minOccurs="0"/>
+                    <xs:element name="otherInformation" type="xs:string" minOccurs="0"/>
+                    <xs:element name="journalTitle" type="xs:string" minOccurs="0"/>
+                    <xs:element name="datePublished" type="xs:date" minOccurs="0"/>
+                    <xs:element name="publicationUrl" type="xs:string" minOccurs="0"/>
+                    <xs:element name="pubMedId" type="xs:string" minOccurs="0"/>
+                    <xs:element name="isbn" type="xs:string" minOccurs="0"/>
+                    <xs:element name="issn" type="xs:string" minOccurs="0"/>
+                    <xs:element name="seriesNumber" type="xs:string" minOccurs="0"/>
+                    <xs:element name="seriesTitle" type="xs:string" minOccurs="0"/>
+                    <xs:element name="subTitle" type="xs:string" minOccurs="0"/>
+                    <xs:element name="volumeTitle" type="xs:string" minOccurs="0"/>
+                    <xs:element name="doi" type="xs:string" minOccurs="0"/>
+                    <xs:element name="volumeNumber" type="xs:string" minOccurs="0"/>
+                    <xs:element name="issue" type="xs:string" minOccurs="0"/>
+                    <xs:element name="totalPages" type="xs:string" minOccurs="0"/>
+                    <xs:element name="edition" type="xs:string" minOccurs="0"/>
+                    <xs:element name="chapterNumber" type="xs:string" minOccurs="0"/>
+                    <xs:element name="chapterTitle" type="xs:string" minOccurs="0"/>
+                    <xs:element name="pageReference" type="xs:string" minOccurs="0"/>
+                    <xs:element name="conferenceEvent" type="xs:string" minOccurs="0"/>
+                    <xs:element name="conferenceLocation" type="xs:string" minOccurs="0"/>
+                    <xs:element name="conferenceNumber" type="xs:string" minOccurs="0"/>
+                    <xs:element name="author" type="xs:string" minOccurs="0"/>
+                </xs:sequence>
+            </xs:extension>
+        </xs:complexContent>
+    </xs:complexType>
+
+    <xs:complexType name="collaborations">
+        <xs:annotation>
+            <xs:documentation xml:lang="en"> Collaboration research outcome </xs:documentation>
+        </xs:annotation>
+        <xs:complexContent>
+            <xs:extension base="gtr:bulk">
+                <xs:sequence>
+                    <xs:element name="collaboration" type="gtr-pout:collaboration" minOccurs="0" maxOccurs="unbounded"/>
+                </xs:sequence>
+            </xs:extension>
+        </xs:complexContent>
+    </xs:complexType>
+    <xs:complexType name="collaboration">
+        <xs:annotation>
+            <xs:documentation xml:lang="en"> Collaboration outcome. </xs:documentation>
+        </xs:annotation>
+        <xs:complexContent>
+            <xs:extension base="gtr:resource">
+                <xs:sequence>
+                    <xs:element name="title" type="xs:string" minOccurs="0"/>
+                    <xs:element name="description" type="xs:string" minOccurs="0"/>
+                    <xs:element name="parentOrganisation" type="xs:string" nillable="true"/>
+                    <xs:element name="childOrganisation" type="xs:string" minOccurs="0"/>
+                    <xs:element name="principalInvestigatorContribution" type="xs:string" minOccurs="0"/>
+                    <xs:element name="partnerContribution" type="xs:string" minOccurs="0"/>
+                    <xs:element name="start" type="xs:date" minOccurs="0"/>
+                    <xs:element name="end" type="xs:date" minOccurs="0"/>
+                    <xs:element name="sector" type="xs:string" minOccurs="0"/>
+                    <xs:element name="country" type="xs:string" minOccurs="0"/>
+                    <xs:element name="impact" type="xs:string" minOccurs="0"/>
+                    <xs:element name="supportingUrl" type="xs:string" minOccurs="0"/>
+                </xs:sequence>
+            </xs:extension>
+        </xs:complexContent>
+    </xs:complexType>
+    
+    <xs:complexType name="disseminations">
+        <xs:annotation>
+            <xs:documentation xml:lang="en"> Dissemination research outcome </xs:documentation>
+        </xs:annotation>
+        <xs:complexContent>
+            <xs:extension base="gtr:bulk">
+                <xs:sequence>
+                    <xs:element name="dissemination" type="gtr-pout:dissemination" minOccurs="0" maxOccurs="unbounded"/>
+                </xs:sequence>
+            </xs:extension>
+        </xs:complexContent>
+    </xs:complexType>
+    <xs:complexType name="dissemination">
+        <xs:annotation>
+            <xs:documentation xml:lang="en"> Dissemination outcome. </xs:documentation>
+        </xs:annotation>
+        <xs:complexContent>
+            <xs:extension base="gtr:resource">
+                <xs:sequence>
+                    <xs:element name="title" type="xs:string" nillable="true"/>
+                    <xs:element name="description" type="xs:string" nillable="true"/>
+                    <xs:element name="form" type="xs:string" nillable="true"/>
+                    <xs:element name="primaryAudience" type="xs:string" nillable="true"/>
+                    <xs:element name="yearsOfDissemination" type="xs:string" nillable="true"/>
+                    <xs:element name="results" type="xs:string" minOccurs="0"/>
+                    <xs:element name="impact" type="xs:string" minOccurs="0"/>
+                    <xs:element name="typeOfPresentation" type="xs:string" minOccurs="0"/>
+                    <xs:element name="geographicReach" type="xs:string" minOccurs="0"/>
+                    <xs:element name="partOfOfficialScheme" type="xs:boolean" minOccurs="0"/>
+                    <xs:element name="supportingUrl" type="xs:string" minOccurs="0"/>
+                </xs:sequence>
+            </xs:extension>
+        </xs:complexContent>
+    </xs:complexType>
+    
+    <xs:complexType name="furtherFundings">
+        <xs:annotation>
+            <xs:documentation xml:lang="en"> Further Funding outcomes </xs:documentation>
+        </xs:annotation>
+        <xs:complexContent>
+            <xs:extension base="gtr:bulk">
+                <xs:sequence>
+                    <xs:element name="futherfunding" type="gtr-pout:furtherFunding" minOccurs="0" maxOccurs="unbounded"/>
+                </xs:sequence>
+            </xs:extension>
+        </xs:complexContent>
+    </xs:complexType>
+    <xs:complexType name="furtherFunding">
+        <xs:annotation>
+            <xs:documentation xml:lang="en"> Further Funding outcome </xs:documentation>
+        </xs:annotation>
+        <xs:complexContent>
+            <xs:extension base="gtr:resource">
+                <xs:sequence>
+                    <xs:element name="title" type="xs:string" nillable="true"/>
+                    <xs:element name="description" type="xs:string" minOccurs="0"/>
+                    <xs:element name="narrative" type="xs:string" minOccurs="0"/>
+                    <xs:element name="amount" type="gtr:money" nillable="true"/>
+                    <xs:element name="organisation" type="xs:string" minOccurs="0"/>
+                    <xs:element name="department" type="xs:string" minOccurs="0"/>
+                    <xs:element name="fundingId" type="xs:string" minOccurs="0"/>
+                    <xs:element name="start" type="xs:date" minOccurs="0"/>
+                    <xs:element name="end" type="xs:date" minOccurs="0"/>
+                    <xs:element name="sector" type="xs:string" minOccurs="0"/>
+                    <xs:element name="country" type="xs:string" minOccurs="0"/>
+                </xs:sequence>
+            </xs:extension>
+        </xs:complexContent>
+    </xs:complexType>
+    
+    <xs:complexType name="exploitations">
+        <xs:annotation>
+            <xs:documentation xml:lang="en"> Exploitation Mechanism outcomes </xs:documentation>
+        </xs:annotation>
+        <xs:complexContent>
+            <xs:extension base="gtr:bulk">
+                <xs:sequence>
+                    <xs:element name="exploitation" type="gtr-pout:exploitation" minOccurs="0" maxOccurs="unbounded"/>
+                </xs:sequence>
+            </xs:extension>
+        </xs:complexContent>
+    </xs:complexType>
+    <xs:complexType name="exploitation">
+        <xs:annotation>
+            <xs:documentation xml:lang="en"> Exploitation Mechanism outcome </xs:documentation>
+        </xs:annotation>
+        <xs:complexContent>
+            <xs:extension base="gtr:resource">
+                <xs:sequence>
+                    <xs:element name="title" type="xs:string" nillable="true"/>
+                    <xs:element name="description" type="xs:string" minOccurs="0"/>
+                    <xs:element name="type" type="xs:string" minOccurs="0"/>
+                    <xs:element name="method" type="xs:string" minOccurs="0"/>
+                    <xs:element name="otherInvolvement" type="xs:string" minOccurs="0"/>
+                    <xs:element name="ipExploited" type="xs:boolean" minOccurs="0"/>
+                    <xs:element name="start" type="xs:date" minOccurs="0"/>
+                </xs:sequence>
+            </xs:extension>
+        </xs:complexContent>
+    </xs:complexType>
+
+    <xs:complexType name="impactSummaries">
+        <xs:annotation>
+            <xs:documentation xml:lang="en"> Collection of research output impact summary </xs:documentation>
+        </xs:annotation>
+        <xs:complexContent>
+            <xs:extension base="gtr:bulk">
+                <xs:sequence>
+                    <xs:element name="impactSummary" type="gtr-pout:impactSummary" minOccurs="0" maxOccurs="unbounded"/>
+                </xs:sequence>
+            </xs:extension>
+        </xs:complexContent>
+    </xs:complexType>
+    <xs:complexType name="impactSummary">
+        <xs:annotation>
+            <xs:documentation xml:lang="en"> research output impact summary </xs:documentation>
+        </xs:annotation>
+        <xs:complexContent>
+            <xs:extension base="gtr:resource">
+                <xs:sequence>
+                    <xs:element name="title" type="xs:string" nillable="true"/>
+                    <xs:element name="description" type="xs:string" minOccurs="0"/>
+                    <xs:element name="impactTypes" type="gtr:strList" minOccurs="0"/>
+                    <xs:element name="summary" type="xs:string" minOccurs="0"/>
+                    <xs:element name="beneficiaries" type="xs:string" minOccurs="0"/>
+                    <xs:element name="contributionMethod" type="xs:string" minOccurs="0"/>
+                    <xs:element name="sector" type="xs:string" minOccurs="0"/>
+                    <xs:element name="firstYearOfImpact" type="xs:int"/>
+                </xs:sequence>
+            </xs:extension>
+        </xs:complexContent>
+    </xs:complexType>
+
+    <xs:complexType name="intellectualProperties">
+        <xs:annotation>
+            <xs:documentation xml:lang="en"> Intellectual property research outcome </xs:documentation>
+        </xs:annotation>
+        <xs:complexContent>
+            <xs:extension base="gtr:bulk">
+                <xs:sequence>
+                    <xs:element name="intellectualProperty" type="gtr-pout:intellectualProperty" minOccurs="0" maxOccurs="unbounded"/>
+                </xs:sequence>
+            </xs:extension>
+        </xs:complexContent>
+    </xs:complexType>
+    <xs:complexType name="intellectualProperty">
+        <xs:annotation>
+            <xs:documentation xml:lang="en"> Intellectual property outcome. </xs:documentation>
+        </xs:annotation>
+        <xs:complexContent>
+            <xs:extension base="gtr:resource">
+                <xs:sequence>
+                    <xs:element name="title" type="xs:string" nillable="true"/>
+                    <xs:element name="description" type="xs:string" nillable="true"/>
+                    <xs:element name="protection" type="xs:string" nillable="true"/>
+                    <xs:element name="patentId" type="xs:string" nillable="true"/>
+                    <xs:element name="yearProtectionGranted" type="xs:int"/>
+                    <xs:element name="type" type="xs:string" minOccurs="0"/>
+                    <xs:element name="impact" type="xs:string" minOccurs="0"/>
+                    <xs:element name="licensed" type="xs:string" minOccurs="0"/>
+                    <xs:element name="patentUrl" type="xs:string" minOccurs="0"/>
+                    <xs:element name="start" type="xs:date" minOccurs="0"/>
+                    <xs:element name="end" type="xs:date" minOccurs="0"/>
+                </xs:sequence>
+            </xs:extension>
+        </xs:complexContent>
+    </xs:complexType>
+
+    <xs:complexType name="policyInfluences">
+        <xs:annotation>
+            <xs:documentation xml:lang="en"> Policy influence outcome from research </xs:documentation>
+        </xs:annotation>
+        <xs:complexContent>
+            <xs:extension base="gtr:bulk">
+                <xs:sequence>
+                    <xs:element name="policyInfluence" type="gtr-pout:policyInfluence" minOccurs="0" maxOccurs="unbounded"/>
+                </xs:sequence>
+            </xs:extension>
+        </xs:complexContent>
+    </xs:complexType>
+    <xs:complexType name="policyInfluence">
+        <xs:annotation>
+            <xs:documentation xml:lang="en"> Policy influence outcome. </xs:documentation>
+        </xs:annotation>
+        <xs:complexContent>
+            <xs:extension base="gtr:resource">
+                <xs:sequence>
+                    <xs:element name="influence" type="xs:string" minOccurs="0"/>
+                    <xs:element name="type" type="xs:string" minOccurs="0"/>
+                    <xs:element name="guidelineTitle" type="xs:string" minOccurs="0"/>
+                    <xs:element name="impact" type="xs:string" minOccurs="0"/>
+                    <xs:element name="methods" type="xs:string" minOccurs="0"/>
+                    <xs:element name="areas" type="gtr:strList" minOccurs="0"/>
+                    <xs:element name="geographicReach" type="xs:string" minOccurs="0"/>
+                    <xs:element name="supportingUrl" type="xs:string" minOccurs="0"/>
+                </xs:sequence>
+            </xs:extension>
+        </xs:complexContent>
+    </xs:complexType>
+
+    <xs:complexType name="products">
+        <xs:annotation>
+            <xs:documentation xml:lang="en"> Product outcome from research </xs:documentation>
+        </xs:annotation>
+        <xs:complexContent>
+            <xs:extension base="gtr:bulk">
+                <xs:sequence>
+                    <xs:element name="product" type="gtr-pout:product" minOccurs="0" maxOccurs="unbounded"/>
+                </xs:sequence>
+            </xs:extension>
+        </xs:complexContent>
+    </xs:complexType>
+    <xs:complexType name="product">
+        <xs:annotation>
+            <xs:documentation xml:lang="en"> Product outcome. </xs:documentation>
+        </xs:annotation>
+        <xs:complexContent>
+            <xs:extension base="gtr:resource">
+                <xs:sequence>
+                    <xs:element name="title" type="xs:string" nillable="true"/>
+                    <xs:element name="description" type="xs:string" nillable="true"/>
+                    <xs:element name="type" type="xs:string" nillable="true"/>
+                    <xs:element name="stage" type="xs:string" minOccurs="0"/>
+                    <xs:element name="status" type="xs:string" minOccurs="0"/>
+                    <xs:element name="clinicalTrial" type="xs:boolean" minOccurs="0"/>
+                    <xs:element name="ukcrnIsctnId" type="xs:string" minOccurs="0"/>
+                    <xs:element name="yearDevelopmentCompleted" type="xs:int" minOccurs="0"/>
+                    <xs:element name="impact" type="xs:string" minOccurs="0"/>
+                    <xs:element name="supportingUrl" type="xs:string" minOccurs="0"/>
+                </xs:sequence>
+            </xs:extension>
+        </xs:complexContent>
+    </xs:complexType>
+
+    <xs:complexType name="researchMaterials">
+        <xs:annotation>
+            <xs:documentation xml:lang="en"> Research material outcome </xs:documentation>
+        </xs:annotation>
+        <xs:complexContent>
+            <xs:extension base="gtr:bulk">
+                <xs:sequence>
+                    <xs:element name="researchMaterial" type="gtr-pout:researchMaterial" minOccurs="0" maxOccurs="unbounded"/>
+                </xs:sequence>
+            </xs:extension>
+        </xs:complexContent>
+    </xs:complexType>
+    <xs:complexType name="researchMaterial">
+        <xs:annotation>
+            <xs:documentation xml:lang="en"> Research material outcome. </xs:documentation>
+        </xs:annotation>
+        <xs:complexContent>
+            <xs:extension base="gtr:resource">
+                <xs:sequence>
+                    <xs:element name="title" type="xs:string" nillable="true"/>
+                    <xs:element name="description" type="xs:string" nillable="true"/>
+                    <xs:element name="type" type="xs:string" nillable="true"/>
+                    <xs:element name="impact" type="xs:string" minOccurs="0"/>
+                    <xs:element name="softwareDeveloped" type="xs:boolean" minOccurs="0"/>
+                    <xs:element name="softwareOpenSourced" type="xs:boolean" minOccurs="0"/>
+                    <xs:element name="providedToOthers" type="xs:boolean" minOccurs="0"/>
+                    <xs:element name="yearFirstProvided" type="xs:int" minOccurs="0"/>
+                    <xs:element name="supportingUrl" type="xs:string" minOccurs="0"/>
+                </xs:sequence>
+            </xs:extension>
+        </xs:complexContent>
+    </xs:complexType>
+
+    <xs:complexType name="spinOuts">
+        <xs:annotation>
+            <xs:documentation xml:lang="en"> Company spin-outs from research </xs:documentation>
+        </xs:annotation>
+        <xs:complexContent>
+            <xs:extension base="gtr:bulk">
+                <xs:sequence>
+                    <xs:element name="spinOut" type="gtr-pout:spinOut" minOccurs="0" maxOccurs="unbounded"/>
+                </xs:sequence>
+            </xs:extension>
+        </xs:complexContent>
+    </xs:complexType>
+    <xs:complexType name="spinOut">
+        <xs:annotation>
+            <xs:documentation xml:lang="en"> Company spin-out from research. </xs:documentation>
+        </xs:annotation>
+        <xs:complexContent>
+            <xs:extension base="gtr:resource">
+                <xs:sequence>
+                    <xs:element name="description" type="xs:string" nillable="true"/>
+                    <xs:element name="companyName" type="xs:string" nillable="true"/>
+                    <xs:element name="companyDescription" type="xs:string" minOccurs="0"/>
+                    <xs:element name="impact" type="xs:string" minOccurs="0"/>
+                    <xs:element name="website" type="xs:string" minOccurs="0"/>
+                    <xs:element name="registrationNumber" type="xs:string" minOccurs="0"/>
+                    <xs:element name="yearEstablished" type="xs:string" minOccurs="0"/>
+                    <xs:element name="ipExploited" type="xs:boolean" minOccurs="0"/>
+                    <xs:element name="jointVenture" type="xs:boolean" minOccurs="0"/>
+                </xs:sequence>
+            </xs:extension>
+        </xs:complexContent>
+    </xs:complexType>
+    
+    <xs:complexType name="otherResearchItems">
+        <xs:annotation>
+            <xs:documentation xml:lang="en"> Other research items </xs:documentation>
+        </xs:annotation>
+        <xs:complexContent>
+            <xs:extension base="gtr:bulk">
+                <xs:sequence>
+                    <xs:element name="otherResearchItem" type="gtr-pout:otherResearchItem" minOccurs="0" maxOccurs="unbounded"/>
+                </xs:sequence>
+            </xs:extension>
+        </xs:complexContent>
+    </xs:complexType>
+    <xs:complexType name="otherResearchItem">
+        <xs:annotation>
+            <xs:documentation xml:lang="en"> Other research item </xs:documentation>
+        </xs:annotation>
+        <xs:complexContent>
+            <xs:extension base="gtr:resource">
+                <xs:sequence>
+                    <xs:element name="title" type="xs:string" nillable="true"/>
+                    <xs:element name="description" type="xs:string" nillable="true"/>
+                    <xs:element name="type" type="xs:string" nillable="true"/>
+                    <xs:element name="subTitle" type="xs:string" minOccurs="0"/>
+                    <xs:element name="seriesTitle" type="xs:string" minOccurs="0"/>
+                    <xs:element name="seriesNumber" type="xs:string" minOccurs="0"/>
+                    <xs:element name="otherInformation" type="xs:string" minOccurs="0"/>
+                    <xs:element name="edition" type="xs:string" minOccurs="0"/>
+                    <xs:element name="doi" type="xs:string" minOccurs="0"/>
+                    <xs:element name="publisher" type="xs:string" minOccurs="0"/>
+                    <xs:element name="supportingUrl" type="xs:boolean" minOccurs="0"/>
+                </xs:sequence>
+            </xs:extension>
+        </xs:complexContent>
+    </xs:complexType>
+</xs:schema>

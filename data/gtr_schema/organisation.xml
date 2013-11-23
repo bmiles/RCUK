@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+    xmlns="http://gtr.rcuk.ac.uk/gtr/api/organisation"
+    targetNamespace="http://gtr.rcuk.ac.uk/gtr/api/organisation"
+    xmlns:gtr="http://gtr.rcuk.ac.uk/gtr/api"
+    xmlns:gtr-org="http://gtr.rcuk.ac.uk/gtr/api/organisation" attributeFormDefault="qualified"
+    elementFormDefault="qualified">
+
+    <xs:import schemaLocation="gtr2.v1.xsd" namespace="http://gtr.rcuk.ac.uk/gtr/api"/>
+
+    <xs:element name="organisation" type="gtr-org:organisation"/>
+    <xs:element name="organisations" type="gtr-org:organisations"/>
+
+    <xs:complexType name="organisation">
+        <xs:annotation>
+            <xs:documentation xml:lang="en"> Research organisation </xs:documentation>
+        </xs:annotation>
+        <xs:complexContent>
+            <xs:extension base="gtr:resource">
+                <xs:sequence>
+                    <xs:element name="name" type="xs:string"/>
+                    <xs:element name="regNumber" type="xs:string" minOccurs="0"/>
+                    <xs:element name="website" type="xs:string" minOccurs="0"/>
+                    <xs:element name="addresses" type="gtr:addresses" minOccurs="0"/>
+                </xs:sequence>
+            </xs:extension>
+        </xs:complexContent>
+    </xs:complexType>
+
+    <xs:complexType name="organisations">
+        <xs:annotation>
+            <xs:documentation xml:lang="en"> A bulk collection of organisation </xs:documentation>
+        </xs:annotation>
+        <xs:complexContent>
+            <xs:extension base="gtr:bulk">
+                <xs:sequence>
+                    <xs:element name="organisation" type="organisation" minOccurs="0" maxOccurs="unbounded"/>
+                </xs:sequence>
+            </xs:extension>
+        </xs:complexContent>
+    </xs:complexType>
+</xs:schema>
