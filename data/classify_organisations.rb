@@ -7,7 +7,14 @@
 #   > data_to_csv 'organisations.csv', $ou
 #
 #   Then run the classify_organisations.py script, which produces
-#   classify_organisations.csv.
+#   classify_organisations.csv. It's not very big, so I've checked the latest
+#   version into source control.
+#
+#   Then run the classify_organisations.sql script to load the resulting
+#   classification into the database and create the project_private_score view.
+#
+#   Then export it with
+#   ruby dump_to_csv.rb project_private_score project_private_score.csv
 #
 # Notes:
 #
@@ -26,19 +33,6 @@ SELECT OrganisationId,
   NOT CHRegistrationNumber IS NULL AS Registered
   FROM organisationunit
 SQL
-
-#
-# Print to CSV.
-#
-def data_to_csv file_name, rows
-  CSV.open(file_name, 'wb') do |csv|
-    csv << rows.first.keys.to_a
-    rows.each do |row|
-      csv << row.values.to_a
-    end
-  end
-  nil
-end
 
 #
 # Select some random organisations for manual classification.
