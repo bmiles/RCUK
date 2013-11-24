@@ -1,49 +1,25 @@
 <div class="row personResultsSection">
   <div class="col-lg-12" ng-controller="MainCtrl"> 
-<!--     <div ng-repeat="person in persons | limitTo:10"> -->
-      <div class="row"> <!-- each box  -->
+    <div ng-repeat="person in persons | limitTo:25">
+      <div class="row"> <!-- each box  --> 
         <a ng-click="showPerson(person.id)">
           <div class="col-lg-12 personBox" ng-style="">
             <div class="row">
               <div class="col-lg-4">
-                <h4>Ben Miles<!-- {{person.firstName}} {{person.surname}} --></h4>
+                <h4>{{person.firstName}} {{person.surname}}</h4>
                 <a href={{person.href}}>link GTR API</a>
               </div>
               <div class="col-lg-4">
-                <h4>Imperial College London</h4>
+                <h4>Total Money: £{{person.total_money}}</h4>
               </div>
               <div class="col-lg-3">
-                <h4>Last Active: 28 Nov 2013</h4>
-              </div>
-              <div class="col-lg-1">
-                <span class="glyphicon glyphicon-comment"></span>
+                <h4>No. of Projects: {{person.num_projects}}</h4>
+                <h4>Private projects: {{person.num_orgs}}</h4>
               </div>
             </div>
           </div> <!-- /box -->
         </a>
       </div>
-      <!-- Dummy -->
-      <div class="row"> <!-- each box  -->
-        <div class="col-lg-12 personBox" ng-style="" >
-          <div class="row">
-            <div class="col-lg-12">
-              <a ng-click="showPerson(person.id)"><h2>Ben Miles<!-- {{person.firstName}} {{person.surname}} --></h2></a>
-              <a href={{person.href}}>link GTR API</a>
-            </div>
-          </div>
-        </div> <!-- /box -->
-      </div>
-      <!-- Dummy -->
-      <div class="row"> <!-- each box  -->
-        <div class="col-lg-12 personBox" ng-style="" >
-          <div class="row">
-            <div class="col-lg-12">
-              <a ng-click="showPerson(person.id)"><h2>Ben Miles<!-- {{person.firstName}} {{person.surname}} --></h2></a>
-              <a href={{person.href}}>link GTR API</a>
-            </div>
-          </div>
-        </div> <!-- /box -->
-      </div>
-    <!-- </div> --><!--  ng-repe -->
+    </div><!--  ng-repe -->
   </div>
 </div>
