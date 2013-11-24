@@ -1,17 +1,9 @@
 $icon-font-path: "/bower_components/sass-bootstrap/fonts/";
 
+@import url(http:\/\/fonts.googleapis.com/css?family=Roboto:400,400italic,300,300italic,700|Roboto+Slab);
 @import 'sass-bootstrap/lib/bootstrap';
 @import 'animation';
-$flatorange: #f39c12;
-$pumpkin: #d35400;
-$midnightBlue: #2c3e50;
-$wetAsphalt: #34495e;
-$clouds: #ecf0f1;
-$asbestos: #7f8c8d;
-$silver: #bdc3c7;
-
-
-@import url(http:\/\/fonts.googleapis.com/css?family=Roboto:400,400italic,300,300italic,700|Roboto+Slab);
+@import 'colors';
 @import 'person';
 @import 'typography';
 
