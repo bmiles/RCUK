@@ -7,6 +7,11 @@ bower_components
 data/gtr_repo_20131122_0900.sql
 .Rproj.user
 .~*#
+data/.Python
+data/bin
+data/lib
+data/include
+data/share
 data/organisations.csv
 *.pyc
 .env
