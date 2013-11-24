@@ -14,8 +14,8 @@ def search(topic):
     dbname = environ['MONGOLAB_URI'].rsplit('/', 1)[1]
     db = MongoClient(environ['MONGOLAB_URI'])[dbname]
 
-    project_persons = read_json_file('person_projects.json')
-    person_score = read_csv_file('person_score.csv')
+    project_persons = read_json_file('data/person_projects.json')
+    person_score = read_csv_file('data/person_score.csv')
 
     projects_json = request(api_stem + "projects", {'q': 'pro.a={topic}'.format(topic=topic), 's': 100})
 
