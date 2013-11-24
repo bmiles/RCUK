@@ -9,7 +9,7 @@ angular.module('rcukApp')
   ])
   .factory('Person', ["$http", ($http) ->
     get: (id, scope) ->
-      $http.get("/api/persons?where={\"id\":\"#{id}\"}")
+      $http.get("/api/persons/#{id}")
       .success (res) ->
         console.log "Person #{id}", res
         scope.person = res

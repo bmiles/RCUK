@@ -2,7 +2,7 @@
   <div class="col-lg-12" ng-controller="MainCtrl"> 
     <div ng-repeat="person in persons | limitTo:25">
       <div class="row"> <!-- each box  --> 
-        <a ng-click="showPerson(person.id)">
+        <a ng-click="showPerson(person)">
           <div class="col-lg-12 personBox" ng-style="">
             <div class="row">
               <div class="col-lg-4">

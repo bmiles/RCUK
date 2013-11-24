@@ -4,7 +4,7 @@ angular.module('rcukApp')
   .controller 'ResultCtrl', ["$scope", "Search", "$routeParams", "$location", ($scope, Search, $routeParams, $location) ->
     Search.query $routeParams.searchTerm, $scope
 
-    $scope.showPerson = (id) ->
-      console.log(id)
-      $location.path("/person/"+ id)
+    $scope.showPerson = (person) ->
+      console.log(person._id.$oid)
+      $location.path("/person/"+ person._id.$oid)
   ]
