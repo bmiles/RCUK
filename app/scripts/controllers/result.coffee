@@ -1,8 +1,8 @@
 'use strict'
 
 angular.module('rcukApp')
-  .controller 'ResultCtrl', ($scope, personStorage, $http, $location) ->
-    $scope.persons = personStorage.getPersons()
+  .controller 'ResultCtrl', ["$scope", "Search", "$routeParams", ($scope, Search, $routeParams) ->
+    $scope.persons = Search.query $routeParams.searchTerm
 
     #function that gets project titles from a project api URI
 #     $scope.getTitle = (projectLink) ->
@@ -26,4 +26,4 @@ angular.module('rcukApp')
     $scope.showPerson = (id) ->
       console.log(id)
       $location.path("/person/"+ id)
-
+  ]
