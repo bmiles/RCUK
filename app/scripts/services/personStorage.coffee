@@ -7,10 +7,25 @@ angular.module('rcukApp')
       .success (res) ->
         scope.persons = res
   ])
-  .factory('Person', ["$http", ($http) ->
+  .factory('Person', ["$http", "Project", ($http, Project) ->
     get: (id, scope) ->
       $http.get("/api/persons/#{id}")
+      .success (person) ->
+        if person.PI_PER?
+          person.pi = []
+          for pid in person.PI_PER
+            Project.get pid, person.pi
+        if person.COI_PER?
+          person.coi = []
+          for pid in person.COI_PER
+            Project.get pid, person.coi
+        console.log "Person #{id}", person
+        scope.person = person
+  ])
+  .factory('Project', ["$http", ($http) ->
+    get: (id, scope) ->
+      $http.get("/api/projects/#{id}")
       .success (res) ->
-        console.log "Person #{id}", res
-        scope.person = res
+        console.log "Project #{id}", res
+        scope.push res
   ])
