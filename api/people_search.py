@@ -30,7 +30,7 @@ def read_csv_file(filename):
 
 
 api_stem = "http://gtr.rcuk.ac.uk/gtr/api/"
-person_score = read_csv_file('../data/person_score.csv')
+person_score = read_csv_file('data/person_score.csv')
 
 
 def search(topic):
