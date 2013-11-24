@@ -11,10 +11,12 @@
 #   version into source control.
 #
 #   Then run the classify_organisations.sql script to load the resulting
-#   classification into the database and create the project_private_score view.
+#   classification into the database and create the project_score view and
+#   person_score table.
 #
 #   Then export it with
-#   ruby dump_to_csv.rb project_private_score project_private_score.csv
+#   ruby dump_to_csv.rb project_score project_score.csv
+#   ruby dump_to_csv.rb person_score person_score.csv
 #
 # Notes:
 #
@@ -42,6 +44,9 @@ def make_training_set training_set_size
   data_to_csv 'train.csv', sample
 end
 
+#
+# based on reading a few...
+#
 # positive indicators:
 #   limited
 #   ltd
