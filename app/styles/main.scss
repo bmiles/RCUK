@@ -1,18 +1,12 @@
 $icon-font-path: "/bower_components/sass-bootstrap/fonts/";
 
+@import url(http://fonts.googleapis.com/css?family=Roboto:400,400italic,300,300italic,700|Roboto+Slab);
 @import 'sass-bootstrap/lib/bootstrap';
 @import 'animation';
-$flatorange: #f39c12;
-$pumpkin: #d35400;
-$midnightBlue: #2c3e50;
-$wetAsphalt: #34495e;
-$clouds: #ecf0f1;
-$asbestos: #7f8c8d;
-$silver: #bdc3c7;
-
-
-@import url(http:\/\/fonts.googleapis.com/css?family=Roboto:400,400italic,300,300italic,700|Roboto+Slab);
+@import 'colors';
+@import 'person';
 @import 'typography';
+
 //google fonts
 
 //flatui colors
@@ -48,39 +42,40 @@ $silver: #bdc3c7;
   padding: 5px;
   height: 75px;
   //width: 500px;
-  margin: 0 auto 0 auto;
+  //margin: 0 auto 0 auto;
   color: $clouds;
 }
 
 #searchTerm{
+  padding: 15px;
+  font-size: 1em;
+  position: relative;
+  left:20;
   background-color: $midnightBlue;
   color: white;
   height: 75px;
-  //width: 400px;
+  width: 400px;
   border: none;
   border-radius: none;
-  margin: 0 auto 0 auto;
+  //margin: 0 50px 0 auto;
 }
 
-/*
 #searchGo{
-  position: absolute;
-  height: 75px;
-  width: 75px;
-  right: 0;
-  bottom: 0;
-  float: right;
+  height: 100%;
 }
-*/
 .personResultsSection {
   padding-top: 25px;
   background-color: white;
-  height: 500px;
+  -webkit-box-shadow: 0 0 10px 1px rgba(0,0,0,.1);
+  -moz-box-shadow: 0 0 10px 1px rgba(0,0,0,.1);
+  box-shadow: 0 0 10px 1px rgba(0,0,0,.1);
+
 }
 
 .personBox{
   padding: 25px;
   background-color: $clouds;
+  margin-bottom: 25px;
 }
 
 .browsehappy {
@@ -92,7 +87,7 @@ $silver: #bdc3c7;
 
 /* Space out content a bit */
 body {
-    background-image: url(http://lorempixel.com/1280/1024/technics);
+    background-image: url(http://retinajs.s3.amazonaws.com/images/backgrounds/bg.jpg);
     padding-top: 20px;
     padding-bottom: 20px;
 }
