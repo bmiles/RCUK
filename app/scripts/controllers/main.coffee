@@ -15,5 +15,8 @@ angular.module('rcukApp')
       'Superhydrophobic Surfaces'
       'Statins'
       'Gene therapy'
+      'Traffic control'
+      'Computational science'
+      'Lymphoma'
     ]    
   ]

@@ -4,7 +4,7 @@ link_schema = {
     },
     "rel": {
         "type": "string",
-        "allowed": ["PI_PER", "COI_PER", "PM_PER", "FELLOW_PER", "EMPLOYEE",
+        "allowed": ["PI_PER", "COI_PER", "PM_PER", "FELLOW_PER",
                     "EMPLOYED", "LEAD_ORG", "COLLAB_ORG", "FELLOW_ORG",
                     "COFUND_ORG", "PP_ORG", "FUNDER", "PROJECT"]
     },
@@ -101,7 +101,7 @@ person_schema = {
         "type": "list",
         "schema": project_embed,
     },
-    "EMPLOYEE": {
+    "EMPLOYED": {
         "type": "list",
         "schema": organisation_embed,
     },
