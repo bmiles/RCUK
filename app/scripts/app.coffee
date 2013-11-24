@@ -7,7 +7,7 @@ angular.module('rcukApp', [
   'ngRoute',
   'ngAnimate',
 ])
-  .config ($routeProvider, $locationProvider) ->
+  .config ["$routeProvider", "$locationProvider", ($routeProvider, $locationProvider) ->
     $routeProvider
       .when '/',
         templateUrl: 'views/main.html'
@@ -15,5 +15,9 @@ angular.module('rcukApp', [
       .when '/result/:searchTerm',
         templateUrl: 'views/result.html'
         controller: 'ResultCtrl'
+      .when '/person/:id',
+        templateUrl: 'views/person.html'
+        controller: 'PersonCtrl'
       .otherwise
         redirectTo: '/'
+  ]

@@ -46,7 +46,8 @@ def search(topic):
         return person
 
     projects_json = request(api_stem + "projects",
-                            {'q': 'pro.a=%s' % topic, 's': 100})
+                            {'q': 'pro.a=%s' % urllib.quote_plus(topic),
+                             's': 100})
 
     persons = []
     for project in projects_json.get('project', []):
