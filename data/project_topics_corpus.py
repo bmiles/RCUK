@@ -32,7 +32,7 @@ documents = [document[2] or '' for document in documents]
       
 # remove common words and tokenize
 tokenizer = RegexpTokenizer('[\w\d]+')
-stoplist = stopwords.words('english')
+stoplist = set(stopwords.words('english'))
 texts = [[word for word in tokenizer.tokenize(document.lower())
             if word not in stoplist] for document in documents]
 
