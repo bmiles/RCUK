@@ -1,9 +1,12 @@
 from os import environ
+import sys
+sys.path.append('../data')
+
 
 from eve import Eve
 from flask import send_from_directory
 
-from data.people_search import search
+from people_search import search
 from settings import API_NAME
 
 app = Eve(API_NAME)
