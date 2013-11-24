@@ -2,11 +2,17 @@
   <div class="row">
     <div class="container">
       <div class="col-lg-6">
-        <h3 class="">Dr Ben Miles</h3>
+        <h3 class="">{{person.firstName}} {{person.surname}}</h3>
         <h4>Imperial College London</h4>
       </div>
-      <div class="col-lg-6">
-        <button class="btn btn-default pull-right"><span class="glyphicon glyphicon-comment"></span>
+    </div>
+  </div>
+  <div class="row">
+    <div class="container">
+      <div class="col-lg-12">
+        <h3>Total Money: <b>£{{person.total_money}}</b></h3>
+        <h3>No. of Projects: <b>{{person.num_projects}}</b></h3>
+        <h3>No. or Organisations worked with: <b>{{person.num_orgs}}<b/</h3>
       </div>
     </div>
   </div>
