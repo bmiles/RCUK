@@ -2,7 +2,7 @@
 
 angular.module('rcukApp')
   .controller 'ResultCtrl', ($scope, personStorage, $http, $location) ->
-    #$scope.persons = personStorage.getPersons()
+    $scope.persons = personStorage.getPersons()
     
     #function that gets project titles from a project api URI
 #     $scope.getTitle = (projectLink) ->
@@ -12,15 +12,15 @@ angular.module('rcukApp')
 #     $scope.projectTitle = getTitle($scope.persons[0].links.link[0].href)
     
     #topic search function, finds persons based on research topic
-    $scope.topicSearch = (searchTerm) ->
-      searchTermArr = searchTerm.toLowerCase().split(" ")
-      console.log(searchTermArr)
-      $http.get 'http://research-connect.herokuapp.com/api/people',
-        params:
-          where: searchTermArray
-      .success () ->
-          console.log("success") 
-          $scope.persons = response.persons
+#     $scope.topicSearch = (searchTerm) ->
+#       searchTermArr = searchTerm.toLowerCase().split(" ")
+#       console.log(searchTermArr)
+#       $http.get 'http://research-connect.herokuapp.com/api/people',
+#         params:
+#           where: searchTermArray
+#       .success () ->
+#           console.log("success") 
+#           $scope.persons = response.persons
             
     #Person linking
     $scope.showPerson = (id) ->
