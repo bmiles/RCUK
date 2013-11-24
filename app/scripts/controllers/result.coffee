@@ -2,7 +2,7 @@
 
 angular.module('rcukApp')
   .controller 'ResultCtrl', ["$scope", "Search", "$routeParams", ($scope, Search, $routeParams) ->
-    $scope.persons = Search.query $routeParams.searchTerm
+    Search.query $routeParams.searchTerm, $scope
 
     #function that gets project titles from a project api URI
 #     $scope.getTitle = (projectLink) ->

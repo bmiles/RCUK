@@ -2,8 +2,8 @@
 
 angular.module('rcukApp')
   .factory 'Search', ["$http", ($http) ->
-    query: (terms) ->
-      $http.get("http://localhost:5000/search/#{terms}")
+    query: (terms, scope) ->
+      $http.get("/search/#{terms}")
       .success (res) ->
-        return res
+        scope.persons = res
   ]
