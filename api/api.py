@@ -1,8 +1,9 @@
+from json import dumps
 from os import environ
 import sys
 
 from eve import Eve
-from flask import jsonify, send_from_directory
+from flask import make_response, send_from_directory
 
 from people_search import search as people_search
 from settings import API_NAME
@@ -37,7 +38,7 @@ def index():
 
 @app.route('/search/<path:topic>')
 def search(topic):
-    return jsonify(**people_search(topic))
+    return make_response(dumps(people_search(topic)))
 
 
 if __name__ == '__main__':
