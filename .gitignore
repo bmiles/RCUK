@@ -13,5 +13,13 @@ data/lib
 data/include
 data/share
 data/organisations.csv
+data/project_topics_corpus.dict
+data/project_topics_corpus.mm
+data/project_topics_corpus.mm.index
+data/project_topics_corpus_docs.txt
+data/project_topics_corpus_ids.csv
+data/project_topics_corpus_topics.txt
 *.pyc
 .env
+*.swp
+
