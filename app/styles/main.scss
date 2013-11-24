@@ -42,30 +42,27 @@ $icon-font-path: "/bower_components/sass-bootstrap/fonts/";
   padding: 5px;
   height: 75px;
   //width: 500px;
-  margin: 0 auto 0 auto;
+  //margin: 0 auto 0 auto;
   color: $clouds;
 }
 
 #searchTerm{
+  padding: 15px;
+  font-size: 1em;
+  position: relative;
+  left:20;
   background-color: $midnightBlue;
   color: white;
   height: 75px;
-  //width: 400px;
+  width: 400px;
   border: none;
   border-radius: none;
-  margin: 0 auto 0 auto;
+  //margin: 0 50px 0 auto;
 }
 
-/*
 #searchGo{
-  position: absolute;
-  height: 75px;
-  width: 75px;
-  right: 0;
-  bottom: 0;
-  float: right;
+  height: 100%;
 }
-*/
 .personResultsSection {
   padding-top: 25px;
   background-color: white;
@@ -75,6 +72,7 @@ $icon-font-path: "/bower_components/sass-bootstrap/fonts/";
 .personBox{
   padding: 25px;
   background-color: $clouds;
+  margin-bottom: 25px;
 }
 
 .browsehappy {
