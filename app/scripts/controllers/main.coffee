@@ -1,7 +1,7 @@
 'use strict'
 
 angular.module('rcukApp')
-  .controller 'MainCtrl', ($scope, personStorage, $http, $location) ->
+  .controller 'MainCtrl', ["$scope", "$location", ($scope, $location) ->
     
     $scope.showResults = (searchTerm) ->
       console.log(searchTerm)
@@ -16,3 +16,4 @@ angular.module('rcukApp')
       'Statins'
       'Gene therapy'
     ]    
+  ]
