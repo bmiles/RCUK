@@ -25,15 +25,15 @@ from sklearn.naive_bayes import MultinomialNB
 from sklearn.pipeline import Pipeline
 
 pipeline = [('tfidf', TfidfTransformer()),
-            ('chi2', SelectKBest(chi2, k=10)),
+            ('chi2', SelectKBest(chi2, k=20)),
             ('nb', MultinomialNB())]
 classif = SklearnClassifier(Pipeline(pipeline))
 
 # just break on gaps -- note that this doesn't filter out punctuation
-tokenizer = RegexpTokenizer('\s+', gaps=True)
+tokenizer = RegexpTokenizer('[\w\d]+')
 
 training_set = []
-with open('train_jlm_1.csv', 'rb') as f:
+with open('train_jlm.csv', 'rb') as f:
     reader = csv.reader(f)
     for row in reader:
         if row[0] != 'OrganisationId': # header

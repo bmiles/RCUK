@@ -4,6 +4,7 @@ import requests
 import urllib
 from gtr import request, db
 
+from eve.methods.get import getitem
 
 # 1: NumOrgs
 # 2: NumPrivateOrgs
@@ -26,7 +27,8 @@ person_score = read_csv_file('../data/person_score.csv')
 
 def search(topic):
     def get_person(pid):
-        person = db.persons.find_one({"id": pid})
+        # We're only interested in the actual person object
+        person, _, _, _ = getitem('persons', id=pid)
         person['score'] = person_score.get(pid, 0.0)
         return person
     projects_json = request(api_stem + "projects",
