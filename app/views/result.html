@@ -7,14 +7,14 @@
             <div class="row">
               <div class="col-lg-4">
                 <h4>{{person.firstName}} {{person.surname}}</h4>
-                <a href={{person.href}}>link GTR API</a>
+                <a href="http://gtr.rcuk.ac.uk/person/{{person.id}}" target="_blank">RCUK Gateway to Research record</a>
               </div>
               <div class="col-lg-4">
-                <h4>Total Money: £{{person.total_money}}</h4>
+                <h4>Total grant money raised: £{{person.total_money}}</h4>
               </div>
               <div class="col-lg-3">
-                <h4>No. of Projects: {{person.num_projects}}</h4>
-                <h4>No. or Organisations worked with: {{person.num_orgs}}</h4>
+                <h4>Number of projects: {{person.num_projects}}</h4>
+                <h4>Number or organisations worked with: {{person.num_orgs}}</h4>
               </div>
             </div>
           </div> <!-- /box -->
