@@ -3,6 +3,7 @@ from os import environ
 from eve import Eve
 from flask import send_from_directory
 
+from data.people_search import search
 from settings import API_NAME
 
 app = Eve(API_NAME)
@@ -31,6 +32,12 @@ def views(filename):
 @app.route("/")
 def index():
     return send_from_directory(app.root_path + '/app/dist/', 'index.html')
+
+@app.route('/search')
+def search(topic):
+    return search(topic)
+
+
 
 
 if __name__ == '__main__':
