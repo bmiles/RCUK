@@ -4,17 +4,25 @@ angular.module('rcukApp')
   .controller 'ResultCtrl', ($scope, personStorage, $http, $location) ->
     $scope.persons = personStorage.getPersons()
     
-    getTitle = (projectLink) ->
-      console.log(projectLink)
-      
-      $http.get(projectLink).success
-      
-    $scope.projectTitle = getTitle($scope.persons[0].links.link[0].href)
+    #function that gets project titles from a project api URI
+#     $scope.getTitle = (projectLink) ->
+#       console.log(projectLink)
+#       $http.get(projectLink).success
+#       
+#     $scope.projectTitle = getTitle($scope.persons[0].links.link[0].href)
     
+    #topic search function, finds persons based on research topic
+    $scope.topicSearch = (searchTerm) ->
+      searchTermArr = searchTerm.toLowerCase().split(" ")
+      console.log({searchTermArr})
+      $http.get 'api/topics',
+        params:
+          where: searchTermArray
+      $scope.persons = data
+      
+    #Person linking
     $scope.showPerson = (id) ->
       console.log(id)
       $location.path("/person/"+ id)
-    #search function
-    topicSearch = (searchTerm) ->
-      console.log(searchTerm)
+    
     
