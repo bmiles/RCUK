@@ -1,6 +1,6 @@
 $icon-font-path: "/bower_components/sass-bootstrap/fonts/";
 
-@import url(http://fonts.googleapis.com/css?family=Roboto:400,400italic,300,300italic,700|Roboto+Slab);
+@import url(//fonts.googleapis.com/css?family=Roboto:400,400italic,300,300italic,700|Roboto+Slab);
 @import 'sass-bootstrap/lib/bootstrap';
 @import 'animation';
 @import 'colors';
@@ -87,7 +87,7 @@ $icon-font-path: "/bower_components/sass-bootstrap/fonts/";
 
 /* Space out content a bit */
 body {
-    background-image: url(http://retinajs.s3.amazonaws.com/images/backgrounds/bg.jpg);
+    background-image: url(//retinajs.s3.amazonaws.com/images/backgrounds/bg.jpg);
     padding-top: 20px;
     padding-bottom: 20px;
 }
