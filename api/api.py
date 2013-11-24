@@ -7,6 +7,7 @@ from eve import Eve
 from flask import make_response, send_from_directory
 
 from people_search import search as people_search
+from people_search import search_in_orcid as orcid_search
 from settings import API_NAME
 
 app = Eve(API_NAME)
@@ -41,6 +42,9 @@ def index():
 def search(topic):
     return make_response(dumps(people_search(topic), default=json_util.default))
 
+@app.route('/orcid/<path:names>')
+def orcid(name):
+    return search_in_orcid(name)
 
 if __name__ == '__main__':
     # Heroku support: bind to PORT if defined, otherwise default to 5000.
