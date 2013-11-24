@@ -2,8 +2,16 @@
   <div class="row">
     <div class="container">
       <div class="col-lg-6">
-        <h3 class="">{{person.firstName}} {{person.surname}}</h3>
-        <h4>Imperial College London</h4>
+        <h1>
+          <a href="http://gtr.rcuk.ac.uk/person/{{person.id}}" target="_blank">
+            {{person.firstName}} {{person.surname}}
+          </a>
+        </h1>
+        <h3>
+          <a href="http://gtr.rcuk.ac.uk/organisation/{{person.employer[0].id}}" target="_blank">
+            {{person.employer[0].name}}
+          </a>
+        </h3>
       </div>
     </div>
   </div>
@@ -19,14 +27,15 @@
   <div class="row">
     <div class="container">
       <div class="col-lg-12">
-        <h4 class="">Principal Investigator in Projects</h4>
+        <h2>Associated Projects</h2>
+        <h3>Principal Investigator</h3>
         <div ng-repeat="project in person.pi">
-          <p><b>{{project.title}}</b></p>
+          <h4><a href="http://gtr.rcuk.ac.uk/project/{{project.id}}" target="_blank">{{project.title}}</a></h4>
           <p>{{project.abstractText}}</p>
         </div>
-        <h4 class="">Co-investigator in Projects</h4>
+        <h3>Co-investigator</h3>
         <div ng-repeat="project in person.coi">
-          <p><b>{{project.title}}</b></p>
+          <h4><a href="http://gtr.rcuk.ac.uk/project/{{project.id}}" target="_blank">{{project.title}}</a></h4>
           <p>{{project.abstractText}}</p>
         </div>
       </div>
