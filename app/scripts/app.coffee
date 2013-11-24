@@ -15,5 +15,8 @@ angular.module('rcukApp', [
       .when '/result/:searchTerm',
         templateUrl: 'views/result.html'
         controller: 'ResultCtrl'
+      .when '/person/:id',
+        templateUrl: 'views/person.html'
+        controller: 'PersonCtrl'
       .otherwise
         redirectTo: '/'
