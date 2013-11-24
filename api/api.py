@@ -2,6 +2,7 @@ from json import dumps
 from os import environ
 import sys
 
+from bson import json_util
 from eve import Eve
 from flask import make_response, send_from_directory
 
@@ -38,7 +39,7 @@ def index():
 
 @app.route('/search/<path:topic>')
 def search(topic):
-    return make_response(dumps(people_search(topic)))
+    return make_response(dumps(people_search(topic), default=json_util.default))
 
 
 if __name__ == '__main__':

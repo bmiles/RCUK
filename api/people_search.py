@@ -1,6 +1,8 @@
 import csv
 import json
 
+from eve.methods.get import getitem
+
 from gtr import request
 
 
@@ -24,6 +26,11 @@ person_score = read_csv_file('data/person_score.csv')
 
 
 def search(topic):
+    def get_person(pid):
+        # We're only interested in the actual person object
+        person, _, _, _ = getitem('persons', id=pid)
+        person['score'] = person_score.get(pid, 0.0)
+        return person
     projects_json = request(api_stem + "projects",
                             {'q': 'pro.a=%s' % topic, 's': 100})
 
@@ -34,7 +41,7 @@ def search(topic):
                 persons.append(link.get('href').split('/')[-1])
 
     persons = sorted(set(persons), key=lambda person: -person_score[person])
-    return [{person: person_score.get(person, 0)} for person in persons]
+    return [get_person(pid) for pid in persons]
 
 
 def read_json_file(filename):
