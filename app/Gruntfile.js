@@ -12,10 +12,6 @@ module.exports = function (grunt) {
   // Load grunt tasks automatically
   require('load-grunt-tasks')(grunt);
   
-  //load proxy-connect
-  grunt.loadNpmTasks('grunt-connect-proxy');
-  var proxySnippet = require('grunt-connect-proxy/lib/utils').proxyRequest;
-
   // Time how long tasks take. Can help when optimizing build times
   require('time-grunt')(grunt);
 
@@ -70,16 +66,6 @@ module.exports = function (grunt) {
         hostname: 'localhost',
         livereload: 35729
       },
-      proxies: [
-        {
-          context:'/',
-          host: '0.0.0.0',
-          port: 5000,
-          https: false,
-          changeOrigin: false,
-          xforward: false
-        }
-      ],
       livereload: {
         options: {
           open: true,
@@ -87,11 +73,6 @@ module.exports = function (grunt) {
             '.tmp',
             '<%= yeoman.app %>'
           ],
-          middleware: function (connect) {
-            return [
-              proxySnippet
-            ];
-          }
         }
       },
       test: {
@@ -402,7 +383,6 @@ module.exports = function (grunt) {
       'clean:server',
       'concurrent:server',
       'autoprefixer',
-      'configureProxies',
       'connect:livereload',
       'watch'
     ]);
