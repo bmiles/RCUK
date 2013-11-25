@@ -3,7 +3,8 @@
 angular.module('rcukApp')
   .factory('Search', ["$http", ($http) ->
     query: (terms, scope) ->
-      $http.get("/search/#{terms}")
+      $http.get "/search/#{terms}", 
+        tracker: 'resultTracker'
       .success (res) ->
         scope.persons = res
   ])
