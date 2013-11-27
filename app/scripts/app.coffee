@@ -6,6 +6,7 @@ angular.module('rcukApp', [
   'ngSanitize',
   'ngRoute',
   'ngAnimate',
+  'ajoslin.promise-tracker',
 ])
   .config ["$routeProvider", "$locationProvider", ($routeProvider, $locationProvider) ->
     $routeProvider
