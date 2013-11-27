@@ -66,16 +66,17 @@ $icon-font-path: "/bower_components/sass-bootstrap/fonts/";
 .personResultsSection {
   padding-top: 25px;
   background-color: transparent;
-  -webkit-box-shadow: 0 0 10px 1px rgba(0,0,0,.1);
-  -moz-box-shadow: 0 0 10px 1px rgba(0,0,0,.1);
-  box-shadow: 0 0 10px 1px rgba(0,0,0,.1);
-
+  height: 80vh;
+  overflow: auto;
 }
 
 .personBox{
   padding: 25px;
   background-color: $clouds;
   margin-bottom: 25px;
+  -webkit-box-shadow: 0 0 10px 1px rgba(0,0,0,.1);
+  -moz-box-shadow: 0 0 10px 1px rgba(0,0,0,.1);
+  box-shadow: 0 0 10px 1px rgba(0,0,0,.1);
 }
 
 .browsehappy {
