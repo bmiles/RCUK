@@ -1,5 +1,4 @@
 node_modules
-.env
 .tmp
 .sass-cache
 bower_components
@@ -20,5 +19,6 @@ data/project_topics_corpus_ids.csv
 data/project_topics_corpus_topics.txt
 *.pyc
 .env
+.venv
 *.swp
 
