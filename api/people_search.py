@@ -1,7 +1,7 @@
 import csv
 import json
 import requests
-import urllib
+from urllib.parse import quote_plus
 from gtr import request, db
 
 from eve.methods.get import getitem
@@ -13,7 +13,7 @@ from eve.methods.get import getitem
 # 5: PrivateMoney
 def read_csv_file(filename):
     content = {}
-    with open(filename, 'rb') as f:
+    with open(filename, 'r') as f:
         reader = csv.reader(f)
         for row in reader:
             if row[0] != 'PersonId':
@@ -46,7 +46,7 @@ def search(topic):
         return person
 
     projects_json = request(api_stem + "projects",
-                            {'q': 'pro.a=%s' % urllib.quote_plus(topic),
+                            {'q': 'pro.a=%s' % quote_plus(topic),
                              's': 100})
 
     persons = []
@@ -68,6 +68,6 @@ def search_in_orcid(name):
     names = name.split()
     s = requests.Session()
     s.headers.update({'Accept':'application/orcid+json'})
-    r = s.get('http://pub.orcid.org/search/orcid-bio?q=family-name:{surname}+AND+given-names:{firstname}&start=0&rows=1'.format(surname=names[-1],firstname=' '.join(urllib.quote_plus(' '.join([names[x] for x in range(0,len(names)-1)])))))
+    r = s.get('http://pub.orcid.org/search/orcid-bio?q=family-name:{surname}+AND+given-names:{firstname}&start=0&rows=1'.format(surname=names[-1],firstname=' '.join(quote_plus(' '.join([names[x] for x in range(0,len(names)-1)])))))
 
     return json.loads(r.text).get('orcid-search-results',{}).get('orcid-search-result',[{'orcid-profile':'None'}])[0]

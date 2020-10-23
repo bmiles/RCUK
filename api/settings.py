@@ -1,7 +1,7 @@
 """Global API configuration."""
 
 from os import environ
-from urlparse import urlparse
+from urllib.parse import urlparse
 
 from schemas import organisation_schema, person_schema, project_schema
 

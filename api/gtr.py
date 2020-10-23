@@ -1,7 +1,7 @@
 from datetime import datetime
 from logging import getLogger, DEBUG, debug
 from os import environ
-from sys import maxint
+from sys import maxsize
 
 from pymongo import MongoClient
 import requests
@@ -64,7 +64,7 @@ rel2func = {
 }
 
 
-def populate_db(page=1, size=100, end=maxint):
+def populate_db(page=1, size=100, end=maxsize):
 
     def append_rel(rel, url, person):
         if not rel in person:
